@@ -1,6 +1,6 @@
 body
 {
-  padding: 200px;
+  padding: 20%;
   border-radius: 460px;
   padding-top: 40px;
     background-image: url('background.jpeg');
@@ -12,8 +12,8 @@ section
 }
 .box
 {
-  padding: 5px;
-  padding-left: 200px;
+  padding: 1%;
+  padding-left: 20%;
   border-radius: 150px;
   border-style:inset;
   border-color: darkblue;
@@ -21,8 +21,8 @@ section
 }
 .box2
 {
-  padding: 5px;
-  padding-left:250px;
+  padding: 1%;
+  padding-left:20%;
   border-radius: 150px;
   border-color: darkblue;
   border-style: dashed;
@@ -31,30 +31,31 @@ section
 .list
 {
   padding-top: 5px;
-  border-radius: 250px;
+  border-radius: 200px;
   background-color: #fff;
   color: #008000;
-  padding-left: 200px;
-  border-style:inset;
+  padding: 10%;
   border-color:darkblue;
 }
 p
 {
+  text-align: center;
   font-size: 30px;
   color: tomato;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10%;
 
 }
 h1
 {
+  text-align: center;
   padding-top: 10px;
   font-size: 50px;
   color: #008000;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-right: 10%;
+
 }
 li a
 {
-
+text-align: center;
 }
+
