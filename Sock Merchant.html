@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Sock Merchant</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>Solution:</h2>
+      <p>For Recent Updated Code   <a href="https://github.com/ganesh8074/Hackerrank-Cpp-Solutions">VISIT MY GITHUB</a></p>
+
+      <h3>C++:</h3>
+<pre>
+  </pre>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def sockMerchant(n, ar):
+      socks = {}
+      res = 0
+
+      for el in ar:
+          if el not in socks.keys():
+              socks[el] = 1
+          else:
+              socks[el] += 1
+
+      for key in socks.keys():
+          res += socks[key]//2
+
+      return res
+
+  n = int(input().strip())
+  ar = list(map(int, input().strip().split(' ')))
+  result = sockMerchant(n, ar)
+  print(result)
+</pre>
+    </div>
+  </body>
+</html>

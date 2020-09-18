@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> </title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int w;
+    cin >> w;
+    for(int a = 0; a < w; a++)
+    {
+        int n;
+        cin >> n;
+        string b;
+        cin >> b;
+
+        bool res=1;
+        for(char i='A'; i<='Z'; i++)
+        {
+            int count=0;
+            for(int j=0; j< n; j++)
+            {
+                if(b[j]==i) count++;
+            }
+            if(count==1)
+            {
+                res=0;
+                break;
+            }
+        }
+        if(res)
+        {
+            int count_=0;
+            for(int i=0; i< n; i++)
+            {
+                if(b[i]=='_') count_++;
+            }
+            if(count_==0)
+            {
+                for(int i=1; i<(n-1); i++)
+                {
+                    if(b[i]!=b[i+1] && b[i]!=b[i-1])
+                    {
+                        res=0;
+                        break;
+                        }
+                }
+            }
+        }
+        if(res) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static boolean ladyBugs(String s,int n)
+    {   boolean flag_uscores=false,flag_letter=false;
+            int[] arr=new int[26];
+            for(int i=0;i< n;i++)
+            {
+                if(s.charAt(i)=='_')
+                    flag_uscores=true;
+                else
+                    flag_letter=true;
+                if(s.charAt(i)!='_')
+                    arr[s.charAt(i)-'A']++;
+            }
+            if(flag_uscores==true&&flag_letter==false)
+                return true;
+            else if(flag_uscores==false&&flag_letter==true)
+            {   if(s.length()==1)
+                return false;
+                if(s.charAt(0)!=s.charAt(1)||s.charAt(n-2)!=s.charAt(n-1))
+                return false;
+                else
+                for(int i=1;i< n-1;i++)
+                {
+                    if(!(s.charAt(i)==s.charAt(i-1)||s.charAt(i)==s.charAt(i+1)))
+                        return false;
+                }
+                return true;
+            }
+            else
+            {
+                for(int i=0;i< 26;i++)
+                    if(arr[i]==1)
+                        return false;
+                return true;
+            }
+    }
+        public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int Q = in.nextInt();
+        for(int a0 = 0; a0 < Q; a0++){
+            int n = in.nextInt();
+            String b = in.next();
+            boolean result=ladyBugs(b,n);
+            if(result==true)
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+        }
+    }
+}
+
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import os
+  import sys
+  from collections import Counter
+
+  #
+  # Complete the happyLadybugs function below.
+  #
+
+  def is_happy(b):
+      if b[0] != b[1] or b[-1] != b[-2]:
+          return False
+      for ind in range(1, len(b)-1):
+          if b[ind] != b[ind-1] and b[ind] != b[ind+1]:
+              return False
+
+      return True
+
+  def happyLadybugs(b):
+      cnt = Counter(b)
+      print("cnt = {}".format(cnt))
+
+      singles = list(filter(lambda x: x[0] != '_' and x[1] == 1, cnt.items()))
+      empty = b.count('_')
+
+      print("singles = {}".format(singles))
+      print("empty = {}".format(empty))
+
+      if len(singles) == 0 and empty > 0:
+          return 'YES'
+      elif len(b) > 2 and is_happy(b):
+          return 'YES'
+      else:
+          return 'NO'
+
+if __name__ == '__main__':
+      fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+      g = int(input())
+
+      for g_itr in range(g):
+          n = int(input())
+
+          b = input()
+
+          result = happyLadybugs(b)
+
+          fptr.write(result + '\n')
+
+      fptr.close()
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

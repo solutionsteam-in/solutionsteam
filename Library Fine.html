@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Library Fine</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+  <h3>C++:</h3>
+<pre>
+  #include < iostream>
+using namespace std;
+
+int main() {
+    int Da, Ma, Ya, De, Me, Ye;
+    cin >> Da >> Ma >> Ya >> De >> Me >> Ye;
+    if(Ya < Ye) {
+        cout << 0;
+    } else if(Ya == Ye) {
+        if(Ma < Me) {
+            cout << 0;
+        } else if(Ma == Me) {
+            if(Da <= De) {
+                cout << 0;
+            } else {
+                cout << 15 * (Da - De);
+            }
+        } else {
+            cout << 500 * (Ma - Me);
+        }
+    } else {
+        cout << 10000;
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int returnDay = input.nextInt();
+        int returnMonth = input.nextInt();
+        int returnYear = input.nextInt();
+
+        int expectedDay = input.nextInt();
+        int expectedMonth = input.nextInt();
+        int expectedYear = input.nextInt();
+
+        int hackosFine = 0;
+        if(expectedYear < returnYear)
+        {
+            hackosFine = 10000;
+        }
+        else if(expectedYear == returnYear )
+        {
+            if(expectedMonth < returnMonth)
+            {
+                hackosFine = (returnMonth-expectedMonth) * 500;
+            }
+            else if(expectedMonth == returnMonth)
+            {
+                if(expectedDay < returnDay)
+                {
+                    hackosFine = (returnDay - expectedDay) * 15;
+                }
+            }
+        }
+
+        System.out.println(hackosFine);
+    }
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def libraryFine(d1, m1, y1, d2, m2, y2):
+      fine = 0
+
+      if y1 > y2:
+          fine = 10000
+      elif m1 > m2 and y1 == y2:
+          fine = 500 * (m1 - m2)
+      elif d1 > d2 and m1 == m2 and y1 == y2:
+          fine = 15 * (d1 - d2)
+
+      return fine
+
+  if __name__ == "__main__":
+      d1, m1, y1 = input().strip().split(' ')
+      d1, m1, y1 = [int(d1), int(m1), int(y1)]
+      d2, m2, y2 = input().strip().split(' ')
+      d2, m2, y2 = [int(d2), int(m2), int(y2)]
+      result = libraryFine(d1, m1, y1, d2, m2, y2)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

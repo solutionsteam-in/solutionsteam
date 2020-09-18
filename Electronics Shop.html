@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Electronics Shop</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+    <h3>C++:</h3>
+<pre>
+  #include < vector>
+#include < iostream>
+#include < algorithm>
+int main() {
+    int s,n,m;
+    std::cin >> s >> n >> m;
+
+    std::vector< int> k(n),u(m);
+    for (auto& e : k)
+        std::cin >> e;
+    for (auto& e : u)
+        std::cin >> e;
+
+    int max_spent = -1;
+    for (int i = 0,j,t; i < k.size(); ++i) {
+        for (j = 0; j < u.size(); ++j) {
+            t = k[i] + u[j];
+            if (t > max_spent && t <= s) {
+                max_spent = t;
+            }
+        }
+    }
+    std::cout << max_spent << '\n';
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+import java.util.Arrays;
+public class Solution {
+    static int getMoneySpent(int[] keyboards, int[] drives, int b) {
+        Arrays.sort(keyboards); // O(n log n) time complexity
+        Arrays.sort(drives);    // O(m log m) time complexity
+        int max = -1;
+        int i = 0;
+        int j = drives.length - 1;
+        while (i < keyboards.length && j >= 0) { // O(n + m) time complexity
+            int cost = keyboards[i] + drives[j];
+            if (cost > b) {
+                j--; // look for a cheaper hard drive
+            } else {
+                if (cost > max) {
+                    max = cost;
+                }
+                i++; // look for a more expensive keyboard
+            }
+        }
+        return max;
+    }
+
+    public static void main(String[] args) {
+        /* Save input */
+        Scanner scan = new Scanner(System.in);
+        int s = scan.nextInt();
+        int n = scan.nextInt();
+        int m = scan.nextInt();
+        int[] keyboards = new int[n];
+        for (int i = 0; i < n; i++) {
+            keyboards[i] = scan.nextInt();
+        }
+        int[] drives = new int[m];
+        for (int i = 0; i < m; i++) {
+            drives[i] = scan.nextInt();
+        }
+        scan.close();
+
+        /* Calculate result */
+        int moneySpent = getMoneySpent(keyboards, drives, s);
+        System.out.println(moneySpent);
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+  import java.util.*;
+  import java.text.*;
+  import java.math.*;
+  import java.util.regex.*;
+
+  public class Solution {
+
+      public static void main(String[] args) {
+          Scanner in = new Scanner(System.in);
+          int s = in.nextInt();
+          int n = in.nextInt();
+          int m = in.nextInt();
+          Integer[] keyboards = new Integer[n];
+          for(int keyboards_i=0; keyboards_i < n; keyboards_i++){
+              keyboards[keyboards_i] = in.nextInt();
+          }
+          int[] pendrives = new int[m];
+          for(int pendrives_i=0; pendrives_i < m; pendrives_i++){
+              pendrives[pendrives_i] = in.nextInt();
+          }
+
+          Arrays.sort(keyboards, Collections.reverseOrder());//Descending order
+          Arrays.sort(pendrives);//Ascending order
+
+          int max = -1;
+          for(int i = 0, j = 0; i < n; i++){
+              for(; j < m; j++){
+                  if(keyboards[i]+pendrives[j] > s) break; //This prevents j from incrementing
+                  if(keyboards[i]+pendrives[j] > max)
+                      max = keyboards[i]+pendrives[j];
+              }
+          }
+          System.out.println(max);
+      }
+  }
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  from collections import defaultdict
+  from itertools import product
+
+  def getMoneySpent(keyboards, drives, s):
+      res = -1
+      #keyboards = sorted(keyboards)
+      #drives = sorted(drives)
+
+      #for ind in min(len(keyboards), len(drives)):
+
+      variants = list(filter(lambda x: sum(x) <= s, list(product(keyboards, drives))))
+      if variants:
+          res = sum(max(variants, key = sum))
+
+      return res
+
+
+
+
+  s,n,m = input().strip().split(' ')
+  s,n,m = [int(s),int(n),int(m)]
+  keyboards = list(map(int, input().strip().split(' ')))
+  drives = list(map(int, input().strip().split(' ')))
+  moneySpent = getMoneySpent(keyboards, drives, s)
+  print(moneySpent)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

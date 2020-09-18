@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Climbing the Leaderboard</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include <vector>
+#include <iostream>
+#include <algorithm>
+
+int main() {
+    int n,m;
+    std::cin >> n;
+    std::vector<int> lb(n);
+    for (auto& e : lb) std::cin >> e;
+
+    std::vector<int> ranks(n);
+    ranks[0] = 1;
+    for (size_t i = 1; i < n; ++i) {
+        if (lb[i] == lb[i-1]) {
+            ranks[i] = ranks[i-1];
+            continue;
+        }
+        ranks[i] = ranks[i-1]+1;
+    }
+    ranks.push_back(ranks[n-1]+1);
+
+    std::cin >> m;
+    std::vector< int> alice(m);
+
+    int curr = ranks[n], ci = n-1;
+    for (auto& e : alice) {
+        std::cin >> e;
+        while(ci >= 0 && e > lb[ci]) {
+            --ci;
+        }
+        if (lb[ci] == e)
+            std::cout << ranks[ci];
+        else if (lb[ci] > e)
+            std::cout << ranks[ci]+1;
+        else
+            std::cout << 1;
+        std::cout << '\n';
+    }
+
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA</h3>
+<pre>
+  import java.util.*;
+public class ClimbingTheLeaderboard {
+	public static void main(String args[]) {
+		Scanner in = new Scanner(System.in);
+		int n = in.nextInt();
+        int[] scores = new int[n];
+        int[] rank = new int[n];
+        for(int scores_i=0; scores_i < n; scores_i++){
+            scores[scores_i] = in.nextInt();
+        }
+        rank[0] = 1;
+        for(int i=1; i < n; i++) {
+        	if(scores[i] == scores[i-1])
+        		rank[i] = rank[i-1];
+        	else
+        		rank[i] = rank[i-1] + 1;
+        }
+        int m = in.nextInt();
+        int[] alice = new int[m];
+        int index = n-1, aliceRank = rank[n-1] + 1;
+        for(int alice_i=0; alice_i < m; alice_i++){
+            alice[alice_i] = in.nextInt();
+            while(index>=0 && scores[index] <= alice[alice_i]){
+                aliceRank = rank[index];
+                index--;
+            }
+            if(index>=0 && scores[index] == alice[alice_i])
+                aliceRank = rank[index];
+            System.out.println(aliceRank);
+        }
+	}
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def climbingLeaderboard(scores, alice):
+      output = []
+      uniq = list(sorted(list(set(scores)), reverse=True))
+      last = len(uniq)
+
+      for cur in alice:
+          #print("cur = {} last = {}".format(cur, last))
+          while last > 0 and cur > uniq[last-1]:
+              #print("DOWN {} -> {}".format(last, last-1))
+              last -= 1
+          if cur == uniq[last-1]:
+              output.append(last)
+          else:
+              output.append(last+1)
+
+      return output
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      scores = list(map(int, input().strip().split(' ')))
+      m = int(input().strip())
+      alice = list(map(int, input().strip().split(' ')))
+      result = climbingLeaderboard(scores, alice)
+      print ("\n".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Grading Students</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+<h3>C++:</h3>
+<pre>
+
+#include < iostream>
+using namespace std;
+
+int main() {
+  int n;
+  cin >> n;
+  for(int grade; cin >> grade; ) {
+      if(grade >= 38 && grade % 5 >= 3) {
+          grade += 5 - grade % 5;
+      }
+      cout << grade << endl;
+  }
+  return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        while (n-- > 0) {
+            int grade = scan.nextInt();
+            System.out.println(roundGrade(grade));
+        }
+        scan.close();
+    }
+
+    private static int roundGrade(int grade) {
+        if (grade >= 38) {
+            int gradeMod5 = grade % 5;
+            if (gradeMod5 > 2) {
+                grade += 5 - gradeMod5;
+            }
+        }
+        return grade;
+    }
+}
+    </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def solve(grades):
+      res = []
+
+      for el in grades:
+          if el < 38:
+              res.append(el)
+          elif el%5 >= 3:
+              res.append(el + 5-el%5)
+          else:
+              res.append(el)
+      return res
+
+  n = int(input().strip())
+  grades = []
+  grades_i = 0
+  for grades_i in range(n):
+     grades_t = int(input().strip())
+     grades.append(grades_t)
+  result = solve(grades)
+  print ("\n".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

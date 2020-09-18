@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Extra Long Factorials</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+<h3>C++:</h3>
+<pre>
+  #include <iostream>
+#include <algorithm>
+using namespace std;
+
+string multiply(const string& a, const string& b) {
+    string product(a.size() + b.size(), '0');
+    for(int i = a.size() - 1; i >= 0; i--) {
+        for(int j = b.size() - 1; j >= 0; j--) {
+            auto sum = (a[i] - '0') * (b[j] - '0') + product[i + j + 1] - '0';
+            product[i + j] += sum / 10;
+            product[i + j + 1] = sum % 10 + '0';
+        }
+    }
+    if(product[0] == '0') {
+        product.erase(0, 1);
+    }
+    for(auto c : product) {
+        if(c != '0') {
+            return product;
+        }
+    }
+    return "0";
+}
+
+int main() {
+    int N;
+    string result = "1";
+    for(cin >> N; N > 1; N--) {
+        result = multiply(result, to_string(N));
+    }
+    cout << result;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        scan.close();
+        System.out.println(factorial(n));
+    }
+
+    private static BigInteger factorial(int n) {
+        BigInteger result = BigInteger.ONE;
+        while (n > 1) {
+            result = result.multiply(BigInteger.valueOf(n));
+            n--;
+        }
+        return result;
+    }
+}
+    </pre>
+    <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    <h3>JAVA:</h3>
+    <pre>
+      import java.io.*;
+      import java.util.*;
+      import java.math.BigInteger;
+
+      public class Solution {
+
+          public static void main(String[] args) {
+              /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+              Scanner input = new Scanner(System.in);
+              int N = input.nextInt();
+
+              BigInteger factorial = new BigInteger("1");
+
+              for(int i = 2; i <= N; i++)
+              {
+                  BigInteger multiplier = new BigInteger(String.valueOf(i));
+                  factorial = factorial.multiply(multiplier);
+              }
+
+              System.out.println(factorial);
+          }
+      }
+      </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  from math import factorial
+
+  def extraLongFactorials(n):
+      return factorial(n)
+
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      print(extraLongFactorials(n))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

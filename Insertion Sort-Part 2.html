@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+  <h3>C++:</h3>
+<pre>
+  #include < iostream>
+  using namespace std;
+
+  int main() {
+      int n;
+      cin >> n;
+      int a[n];
+      for(int i = 0; cin >> a[i]; i++) {
+      }
+      for(int i = 1; i < n; i++) {
+          int j = i, k = a[i];
+          while(j >= 1 && a[j - 1] > k) {
+              a[j] = a[j - 1];
+              j--;
+          }
+          a[j] = k;
+          for(int i = 0; i < n; i++) {
+              cout << a[i] << ' ';
+          }
+          cout << endl;
+      }
+      return 0;
+  }
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+
+public class Solution {
+
+    public static void main(String[] args) {
+       Scanner scan=new Scanner(System.in);
+        int s=scan.nextInt();
+        int ar[]=new int[s];
+        boolean check=false;
+        for(int i=0;i< s;i++)
+        {
+            ar[i]=scan.nextInt();
+        }
+        for(int i=1;i< s;i++)
+        {
+            int temp=ar[i];
+            for(int j=i-1;j>=0 && temp< ar[j];j--)
+            {
+                ar[j+1]=ar[j];
+                ar[j]=temp;
+            }
+            for(int j=0;j< s;j++)
+                System.out.print(ar[j]+" ");
+            System.out.println();
+        }
+    }
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def insertionSort1(start, arr):
+      probe = arr[start]
+
+      for ind in range(start-1, -1, -1):
+          if arr[ind] > probe:
+              arr[ind+1] = arr[ind]
+          else:
+              arr[ind+1] = probe
+              break
+      if arr[0] > probe:
+          arr[0] = probe
+
+  def insertionSort2(n, arr):
+      for ind in range(1, len(arr)):
+          insertionSort1(ind, arr)
+          print(" ".join(map(str, arr)))
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      arr = list(map(int, input().strip().split(' ')))
+      insertionSort2(n, arr)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

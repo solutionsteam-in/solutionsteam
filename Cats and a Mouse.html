@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cats and a Mouse</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include< bits/stdc++.h>
+using namespace std;
+int main(){
+
+    int q;
+
+    cin >> q;
+    for(int i = 0; i < q; i++){
+        int a,b,c;
+        cin >> a >> b >> c;
+        abs(a-c) < abs(b-c) ? cout << "Cat A" : abs(b-c) < abs(a-c) ? cout << "Cat B" : cout << "Mouse C";
+        cout << endl;
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int q = in.nextInt();
+        for(int a0 = 0; a0 < q; a0++){
+            int x = in.nextInt();
+            int y = in.nextInt();
+            int z = in.nextInt();
+            int diffzx= Math.abs(z-x);
+            int diffzy= Math.abs(z-y);
+
+            if(diffzx>diffzy)
+                System.out.println("Cat B");
+            else if(diffzx< diffzy)
+                System.out.println("Cat A");
+                else
+                System.out.println("Mouse C");
+     }
+        }
+    }
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def catAndMouse(x, y, z):
+      cat_a = abs(x - z)
+      cat_b = abs(y - z)
+
+      if cat_a < cat_b:
+          return "Cat A"
+      elif cat_a > cat_b:
+          return "Cat B"
+      else:
+          return "Mouse C"
+
+  if __name__ == "__main__":
+      q = int(input().strip())
+      for a0 in range(q):
+          x, y, z = input().strip().split(' ')
+          x, y, z = [int(x), int(y), int(z)]
+          result = catAndMouse(x, y, z)
+          print ("".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>ACM ICPC Team </title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+    <h2>Problem</h2>
+    <p>There are a number of people who will be attending ACM-ICPC World Finals. Each of them may be well versed in a number of topics.
+      Given a list of topics known by each attendee, you must determine the maximum number of topics a 2-person team can know.
+      Also find out how many ways a team can be formed to know that many topics. Lists will be in the form of bit strings,
+      where each string represents an attendee and each position in that string represents a field of knowledge, 1 if its a known field or 0 if not.</p>
+      <h2>Function Description</h2>
+      <p> Complete the acmTeam function in the editor below. It should return an integer array with two elements: the maximum number of topics any team can know and the number of teams that can be formed that know that maximum number of topics.</p>
+        <p>  acmTeam has the following parameter(s):</p>
+          <p>topic: a string of binary digits </p>
+
+          <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+          <h2>Solution:</h2>
+
+      <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+  int acmIcpc(string &amp;str1, string &amp;str2, int length){
+      int topicsKnown = 0;
+      for (int i=0; i< length; i++){
+          if (str1.at(i) == '1' or str2.at(i) == '1'){
+              topicsKnown+= 1;
+          }
+      }
+      return topicsKnown;
+  }
+  int main() {
+      string str[500] = {};
+      int N, M;
+      cin>>N>>M;
+      for (int i=0;i< N;i++) {
+          cin>>str[i];
+      }
+
+      int maxKnown = 0, teamsCnt = 0;
+
+      for (int i=0;i< N-1;i++) {
+          for (int j=i+1;j< N;j++) {
+              int knownForThisCombo = acmIcpc(str[i], str[j], M);
+              if (knownForThisCombo > maxKnown){
+                  maxKnown = knownForThisCombo;
+                  teamsCnt = 1;
+              } else if (knownForThisCombo == maxKnown){
+                  teamsCnt += 1;
+              }
+          }
+      }
+
+      cout << maxKnown << endl;
+      cout << teamsCnt << endl;
+      return 0;
+  }</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>JAVA:</h3>
+  <pre>
+    import java.io.*;
+    import java.util.*;
+    import java.lang.Math;
+
+    public class Solution {
+
+        public static void main(String[] args) {
+            /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+            Scanner input = new Scanner(System.in);
+            int n = input.nextInt();
+            int m = input.nextInt();
+
+            String[] skills = new String[n];
+            int maxSkills = 0;
+            int maxSkillTeams = 0;
+            input.nextLine(); //advances the past the first line of input integers
+
+            for(int i = 0; i < n; i++)
+            {
+                skills[i] = input.nextLine();
+            }
+
+
+            for(int i = 0; i < n; i++)
+            {
+                for(int j = i+1; j < n; j++)
+                {
+                    String member1 = skills[i];
+                    String member2 = skills[j];
+                    int skillSet = 0;
+
+                    for(int k = 0; k < m; k++)
+                    {
+                        if(member1.charAt(k) == '1' || member2.charAt(k) == '1')
+                        {
+                            skillSet++;
+                        }
+                    }
+
+                    maxSkillTeams += (maxSkills == skillSet) ? 1 : 0;
+
+                    if(skillSet > maxSkills)
+                    {
+                        maxSkillTeams = 1;
+                        maxSkills = skillSet;
+                    }
+                }
+            }
+            System.out.println(maxSkills + "\n" + maxSkillTeams);
+        }
+    }
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  def acmTeam(n, m, topic):
+    maxKnown = 0
+    teamsCnt = 0
+    for i in xrange(n-1):
+        for j in xrange(i+1, n):
+            knownForThisCombo = 0
+            for t in xrange(m):
+                if topic[i][t] == '1' or topic[j][t] == '1':
+                    knownForThisCombo += 1
+            if knownForThisCombo > maxKnown:
+                maxKnown = knownForThisCombo;
+                teamsCnt = 1;
+            elif knownForThisCombo == maxKnown:
+                teamsCnt += 1;
+
+    return maxKnown, teamsCnt
+</pre>
+    </div>
+  </body>
+</html>

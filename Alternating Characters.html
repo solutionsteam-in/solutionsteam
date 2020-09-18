@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Alternating Characters </title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+    <h2>Problem</h2>
+    <p>You are given a string containing characters  and  only. Your task is to change it into a string such that there are no matching adjacent characters.
+      To do this,you are allowed to delete zero or more characters in the string.
+    For example, given the string , remove an  at positions  and  to make  in  deletions.
+  </p>
+      <h2>Function Description</h2>
+      <p>Complete the alternatingCharacters function in the editor below.
+        It must return an integer representing the minimum number of deletions to make the alternating string.
+        </p>
+<p>alternatingCharacters has the following parameter(s):</p>
+<p>s: a string </p>
+
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+
+      <h3>C++:</h3>
+<pre>
+  #include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        string str;
+        cin >> str;
+        int ans = 0;
+        for (int i = 0 ; i < str.length() - 1; i++) {
+            if (str[i] == str[i + 1]) {
+             // If two consecutive characters are the same, delete one of them.
+                ans++;
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+public static void main(String[] args) {
+Scanner kb=new Scanner(System.in);
+int T=kb.nextInt();
+for(int i=0;i< T;i++)
+{
+String str=kb.next();
+char arr[]=str.toCharArray();
+
+char temp=arr[0];
+int count=0;
+int j=1;
+for(int k=1;k< arr.length;k++)
+{
+if(arr[k]==temp)
+count++;
+
+else if(arr[k]!=temp)
+{
+count=count;
+temp=arr[k];
+}
+}
+System.out.println(count);
+}
+}
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/usr/bin/py
+  if __name__ == '__main__':
+      t = input()
+      for _ in range(t):
+      	s = raw_input()
+      	delete_cnt = 0
+      	for i in range(1,len(s)):
+              if s[i] == s[i-1]:
+              	delete_cnt +=1
+          print delete_cnt
+</pre>
+    </div>
+  </body>
+</html>

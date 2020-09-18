@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Service Lane</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>Solution:</h2>
+      <p>For Recent Updated Code   <a href="https://github.com/ganesh8074/Hackerrank-Cpp-Solutions">VISIT MY GITHUB</a></p>
+
+      <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main()
+{
+long long freeway_length,testcase;
+cin>>freeway_length>>testcase;
+
+vector < long long> segment_width;
+long long temp;
+for(long long input_index=0;input_index< freeway_length;input_index++)
+    {
+    cin>>temp;
+    segment_width.push_back(temp);
+    }
+
+while(testcase--)
+    {
+    long long entry,exit,current_vehicle,largest_vehicle=3;
+    cin>>entry>>exit;
+    for(long long check_index=entry;check_index<=exit;check_index++)
+        {
+        if(segment_width[check_index]==1) {current_vehicle=1;}
+        else if(segment_width[check_index]==2) {current_vehicle=2;}
+        else {current_vehicle=3;}
+
+        if(current_vehicle< largest_vehicle) {largest_vehicle=current_vehicle;}
+        }
+    cout<< largest_vehicle<< endl;
+    }
+return 0;
+}
+  </pre>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def check_interval(i, j):
+      res = 3
+      for inter in range(i, j + 1):
+          res = min(res, width[inter])
+
+      return res
+
+  n,t = input().strip().split(' ')
+  n,t = [int(n),int(t)]
+  width = [int(width_temp) for width_temp in input().strip().split(' ')]
+  for a0 in range(t):
+      i,j = input().strip().split(' ')
+      i,j = [int(i),int(j)]
+
+      print(check_interval(i, j))
+</pre>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Halloween Sale</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C:</h3>
+<pre>
+
+int howManyGames(int p, int d, int m, int s) {
+    int counter = 0, currentPrice=p;
+    while(s >= currentPrice){
+        counter++;
+        s -= currentPrice;
+        currentPrice = (currentPrice - d) >= m ? currentPrice - d : m;
+    }
+    return counter;
+}
+
+int main() {
+    int p, d, m, s;
+    scanf("%i %i %i %i", &p, &d, &m, &s);
+    int answer = howManyGames(p, d, m, s);
+    printf("%d\n", answer);
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>C++:</h3>
+<pre>
+  #include < iostream>
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+    for(long long K; cin >> K; cout << (K / 2) * ((K - 1) / 2 + 1) << endl) {
+    }
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+  // Complete the howManyGames function below.
+  static int howManyGames(int p, int d, int m, int s) {
+    int counter = 0;
+    int current = p;
+    while (s >= current) {
+      counter++;
+      s -= current;
+      if (current - d < m) {
+        current = m;
+      } else {
+        current -= d;
+      }
+    }
+
+    return counter;
+  }
+
+  private static final Scanner scanner = new Scanner(System.in);
+
+  public static void main(String[] args) throws IOException {
+    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+    String[] pdms = scanner.nextLine().split(" ");
+
+    int p = Integer.parseInt(pdms[0]);
+
+    int d = Integer.parseInt(pdms[1]);
+
+    int m = Integer.parseInt(pdms[2]);
+
+    int s = Integer.parseInt(pdms[3]);
+
+    int answer = howManyGames(p, d, m, s);
+
+    bufferedWriter.write(String.valueOf(answer));
+    bufferedWriter.newLine();
+
+    bufferedWriter.close();
+
+    scanner.close();
+  }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import math
+  import os
+  import random
+  import re
+  import sys
+
+  def how_many_games(p, d, m, s):
+      res = 0
+
+      while s > 0:
+          res += 1
+          s -= p
+          p = max(p - d, m)
+
+      if s != 0:
+          res -= 1
+
+      return res
+
+  if __name__ == '__main__':
+      fptr = open(os.environ['OUTPUT_PATH'], 'w')
+      p, d, m, s = [int(n) for n in input().split(" ")]
+
+      answer = how_many_games(p, d, m, s)
+
+      fptr.write(str(answer) + '\n')
+      fptr.close()
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

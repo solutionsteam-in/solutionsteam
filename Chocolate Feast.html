@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Chocolate Feast</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < iostream>
+using namespace std;
+
+int main()
+{
+int t,n,c,m,w,choc;
+cin>>t;
+
+while(t--)
+    {
+    choc=0;
+    cin>>n>>c>>m;
+    choc=n/c;
+    if(choc>=m)
+    for(w=choc;w>=m;choc++,w=w-m+1);
+    cout<< choc<< endl;
+    }
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int chocolateFeast(int n, int c, int m) {
+        int s=n/c;
+        int co=n/c;
+        while(co>=m)
+        {
+            s=s+co/m;
+            co=co%m+co/m;
+
+        }
+        return s;
+        // Complete this function
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int t = in.nextInt();
+        for(int a0 = 0; a0 < t; a0++){
+            int n = in.nextInt();
+            int c = in.nextInt();
+            int m = in.nextInt();
+            int result = chocolateFeast(n, c, m);
+            System.out.println(result);
+        }
+        in.close();
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def wrappers(wr, m):
+      res = 0
+      if wr//m > 0:
+          res += wr//m + wrappers(wr//m + wr%m, m)
+      return res
+
+    def chocolateFeast(n, c, m):
+      return n//c + wrappers(n//c, m)
+
+  if __name__ == "__main__":
+      t = int(input().strip())
+      for a0 in range(t):
+          n, c, m = input().strip().split(' ')
+          n, c, m = [int(n), int(c), int(m)]
+          result = chocolateFeast(n, c, m)
+          print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

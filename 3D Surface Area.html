@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>3D Surface Area</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+
+      <h3>C++:</h3>
+      <pre>
+using namespace std;
+
+int T[200][200];
+
+int main() {
+    int H, W;
+    while(cin >> H >> W) {
+        for(int i=0; i< H; i++)
+            for(int j=0; j< W; j++)
+                cin >> T[i][j];
+
+        int total = 2*H*W;
+        for(int i=0; i< H; i++) {
+            total += T[i][0];
+            for(int j=1; j< W; j++)
+                total += abs(T[i][j] - T[i][j-1]);
+            total += T[i][W-1];
+        }
+        for(int i=0; i< W; i++) {
+            total += T[0][i];
+            for(int j=1; j< H; j++)
+                total += abs(T[j][i] - T[j-1][i]);
+            total += T[H-1][i];
+        }
+
+        cout << total << endl;
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>JAVA:</h3>
+<pre>
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+
+public class Solution {
+
+   public static void main(String[] args) {
+      Scanner in = new Scanner(System.in);
+      int H = in.nextInt();
+      int W = in.nextInt();
+      int[][] A = new int[H][W];
+      for(int A_i = 0; A_i < H; A_i++){
+          for(int A_j = 0; A_j < W; A_j++){
+              A[A_i][A_j] = in.nextInt();
+          }
+      }
+      // Regardless of the configuration, the toy has always a fixed "top surface" and "bottom surface"
+      int result = 2 * H * W;
+      for (int i = 0; i < H; i++) {
+    for (int j = 0; j < W; j++) {
+
+              // We initially add the surface of the four lateral areas of the current cube...
+      result += (A[i][j]) * 4;
+
+              //... and then we remove the unnecessary areas, according the height of the adjacent cubes
+              // already considered
+      if(i != 0) {
+        result -= 2 * Math.min(A[i - 1][j], A[i][j]);
+      }
+      if(j != 0) {
+        result -= 2 * Math.min(A[i][j], A[i][j - 1]);
+      }
+    }
+
+  }
+
+      System.out.println(result);
+
+
+      in.close();
+  }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def surfaceArea(A):
+      H, W = len(A), len(A[0])
+      area = 2*H*W
+      #print("H = {} W = {} area = {}".format(len(A), len(A[0]), area))
+
+      for ind in range(H):
+          for jnd in range(W):
+              #print("i = {} j = {} A = {}".format(ind, jnd, A[ind][jnd]))
+              # ind-1, jnd
+              if ind-1 >= 0:
+                  #print("adding part {}".format(max(0, A[ind][jnd] - A[ind-1][jnd])))
+                  area += max(0, A[ind][jnd] - A[ind-1][jnd])
+              else:
+                  #print("adding full {}".format(A[ind][jnd]))
+                  area += A[ind][jnd]
+              # ind, jnd-1
+              if jnd-1 >= 0:
+                  #print("adding part {}".format(max(0, A[ind][jnd] - A[ind][jnd-1])))
+                  area += max(0, A[ind][jnd] - A[ind][jnd-1])
+              else:
+                  #print("adding full {}".format(A[ind][jnd]))
+                  area += A[ind][jnd]
+              # ind+1, jnd
+              if ind+1 < H:
+                  #print("adding part {}".format(max(0, A[ind][jnd] - A[ind+1][jnd])))
+                  area += max(0, A[ind][jnd] - A[ind+1][jnd])
+              else:
+                  #print("adding full {}".format(A[ind][jnd]))
+                  area += A[ind][jnd]
+              # ind, jnd+1
+              if jnd+1 < W:
+                  #print("adding part {}".format(max(0, A[ind][jnd] - A[ind][jnd+1])))
+                  area += max(0, A[ind][jnd] - A[ind][jnd+1])
+              else:
+                  #print("adding full {}".format(A[ind][jnd]))
+                  area += A[ind][jnd]
+      return area
+
+  if __name__ == "__main__":
+      H, W = input().strip().split(' ')
+      H, W = [int(H), int(W)]
+      A = []
+      for A_i in range(H):
+          A_t = [int(A_temp) for A_temp in input().strip().split(' ')]
+          A.append(A_t)
+      result = surfaceArea(A)
+      print(result)
+</pre>
+    </div>
+  </body>
+</html>

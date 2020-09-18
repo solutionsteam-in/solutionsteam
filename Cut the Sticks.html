@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cut the Sticks</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < string>
+#include < vector>
+#include < iostream>
+#include < algorithm>
+
+using namespace std;
+
+int main(){
+    int n;
+    cin >> n;
+    vector< int> arr(n);
+    for(int arr_i = 0;arr_i < n;arr_i++){
+       cin >> arr[arr_i];
+    }
+
+    int changes;
+    for (int i = 0; i < (n-1); i++) {
+        changes = 0;
+
+        for (int j = 0; j < (n-1); j++) {
+            int val1 = arr[j];
+
+            if (val1 > arr[j + 1]) {
+                arr[j] = arr[j + 1];
+                arr[j + 1] = val1;
+                changes++;
+            }
+        }
+
+        if (changes == 0) break;
+    }
+
+    vector< int> cutsPerRound;
+    while (n > 0) {
+        int numCut = arr.size();
+        int shortStick = arr.front();
+        arr.erase(arr.begin());
+        n = arr.size();
+        for (int i = 0; i < n; i++) {
+            arr[i] -= shortStick;
+
+            if (arr[i] == 0) {
+                arr.erase(arr.begin() + i);
+                n = arr.size();
+                i--;
+            }
+        }
+        cutsPerRound.push_back(numCut);
+    }
+    // finally print out the results
+    for (int i = 0, n = cutsPerRound.size(); i < n; i++)
+        cout << cutsPerRound[i] << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+  import java.util.*;
+  import java.text.*;
+  import java.math.*;
+  import java.util.regex.*;
+
+  public class Solution {
+
+      static int[] cutTheSticks(int[] arr) {
+          Arrays.sort(arr);
+          int k=-1;
+          int ar[]=new int[arr.length];
+          int i=0;
+          while(arr[arr.length-1]!=0)
+          {
+              while(arr[i]==0)
+              {
+                  i++;
+              }
+              int a=arr[i];
+              int c=0;
+              for(int x=i;x< arr.length;x++)
+              {
+                  arr[x]=arr[x]-a;
+                  c++;
+
+              }
+              ar[++k]=c;
+
+          }
+          return ar;
+      }
+
+      public static void main(String[] args) {
+          Scanner in = new Scanner(System.in);
+          int n = in.nextInt();
+          int[] arr = new int[n];
+          for(int arr_i = 0; arr_i < n; arr_i++){
+              arr[arr_i] = in.nextInt();
+          }
+          int[] result = cutTheSticks(arr);
+          for (int i = 0; i < result.length; i++) {
+              if(result[i]==0)
+              {
+                  break;
+              }
+              System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
+          }
+          System.out.println("");
+
+
+          in.close();
+      }
+  }
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def cutTheSticks(arr):
+      out = []
+      while arr:
+          out.append(len(arr))
+          arr_min = min(arr)
+          arr = list(map(lambda x: x - arr_min, arr))
+          arr = list(filter(lambda x: x > 0, arr))
+
+      return out
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      arr = list(map(int, input().strip().split(' ')))
+      result = cutTheSticks(arr)
+      print ("\n".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

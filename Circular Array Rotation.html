@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Circular Array Rotation</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>Solution:</h2>
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h3>C:</h3>
+<pre>
+  #include < math.h>
+#include < stdio.h>
+int main() {
+    int n, k, q;
+    scanf("%d", &n);
+    scanf("%d", &k);
+    scanf("%d", &q);
+    int data[n];
+    for(int i=0; i< n; i++) scanf("%d", &data[i]);
+    k = k % n;
+    while(q--) {
+        int x;
+        scanf("%d", &x);
+        x = x - k;
+        if(x < 0) x = x + n;
+        printf("%d\n", data[x]);
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>C++:</h3>
+<pre>
+  #include < cmath>
+#include < cstdio>
+#include < vector>
+#include < iostream>
+#include < algorithm>
+using namespace std;
+void cirRot(int *a, int n){
+  int t=a[n-1];
+  for(int i=n-1;i>0;i--){
+      a[i]=a[i-1];
+  }
+ a[0]=t;
+}
+void revRot(int *a, int n){
+  int t=a[0];
+  for(int i=0;i< n-1;i++){
+      a[i]=a[i+1];
+  }
+ a[n-1]=t;
+}
+int main() {
+    int n,k,q;
+    cin>>n>>k>>q;
+    int *a=new int[n];
+    for(int i=0; i< n; i++)
+        cin>>a[i];
+    k=k%n;
+    if(k>n/2){
+        k=n-k;
+        while(k--)
+            revRot(a,n);
+    }
+    else{
+    while(k--)
+        cirRot(a,n);    }
+    while(q--){
+        int x;
+        cin>>x;
+        cout<< a[x]<< endl;
+    }
+
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int[] circularArrayRotation(int[] a, int[] m,int k) {
+        int ar[]=new int[a.length];
+        for(int x=0;x< a.length;x++)
+        {
+            int c=(x+k)%a.length;
+            ar[c]=a[x];
+        }
+        int arr[]=new int[m.length];
+
+
+        for(int x=0;x< m.length;x++)
+        {
+            arr[x]=ar[m[x]];
+        }
+        return arr;
+            }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int q = in.nextInt();
+        int[] a = new int[n];
+        for(int a_i = 0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
+        }
+        int[] m = new int[q];
+        for(int m_i = 0; m_i < q; m_i++){
+            m[m_i] = in.nextInt();
+        }
+        int[] result = circularArrayRotation(a, m,k);
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
+        }
+        System.out.println("");
+
+
+        in.close();
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  def rightRotation(a, d):
+      out = list(a)
+      a_len = len(a)
+      for ind, el in enumerate(a):
+          out[(ind + d) % a_len] = el
+
+      return out
+
+  def circularArrayRotation(a, m):
+      out = []
+      for pos in m:
+          out.append(a[pos])
+
+      return out
+
+  if __name__ == "__main__":
+      n, k, q = input().strip().split(' ')
+      n, k, q = [int(n), int(k), int(q)]
+      a = list(map(int, input().strip().split(' ')))
+      m = []
+      m_i = 0
+      for m_i in range(q):
+          m_t = int(input().strip())
+          m.append(m_t)
+      a = rightRotation(a, k)
+      result = circularArrayRotation(a, m)
+      print ("\n".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+    </div>
+  </body>
+</html>

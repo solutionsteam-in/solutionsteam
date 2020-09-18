@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Apple and Orange</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+using namespace std;
+
+int main()
+{
+    int s,t,a,b,m,n,ap,apcnt = 0,ora,orcnt = 0;
+
+    cin >> s >> t >> a >> b >> m >> n;
+
+    for(int i = 0;i < m;i++)
+ {
+        cin >> ap;
+        if(a+ap >= s && a+ap <= t)apcnt++;
+    }
+
+    for(int i = 0;i < n;i++)
+ {
+        cin >> ora;
+        if(b+ora >= s && b+ora <= t)orcnt++;
+    }
+    cout << apcnt << endl<< orcnt << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+<h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+
+public class GradingStudents {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int arr[] = new int[n];
+        for (int i = 0; i &lt; n; i++) {
+            int grade = in.nextInt();
+            if (grade &lt; 38) {
+                arr[i] = grade;
+            } else {
+                int f1 = grade + 1;
+                int f2 = grade + 2;
+                if (f1 % 5 == 0) {
+                    arr[i] = f1;
+                } else if (f2 % 5 == 0) {
+                    arr[i] = f2;
+                } else {
+                    arr[i] = grade;
+                }
+            }
+        }
+        for (int i = 0; i &lt; n; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def appleAndOrange(s, t, a, b, apple, orange):
+      count_app = 0
+      count_org = 0
+      for el in apple:
+          if s <= el+a <= t:
+              count_app += 1
+
+      for el in orange:
+          if s <= el+b <= t:
+              count_org += 1
+
+      return [ count_app, count_org ]
+
+  if __name__ == "__main__":
+      s, t = input().strip().split(' ')
+      s, t = [int(s), int(t)]
+      a, b = input().strip().split(' ')
+      a, b = [int(a), int(b)]
+      m, n = input().strip().split(' ')
+      m, n = [int(m), int(n)]
+      apple = list(map(int, input().strip().split(' ')))
+      orange = list(map(int, input().strip().split(' ')))
+      result = appleAndOrange(s, t, a, b, apple, orange)
+      print ("\n".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

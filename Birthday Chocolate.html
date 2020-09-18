@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Birthday Chocolate</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+
+      <h3>C:</h3>
+  <pre>
+  #include< stdio.h>
+  int main()
+ {
+    int n,i,a[1000],dt,m,temp,count=0,sum=0,j;
+    scanf("%d",&n);
+    for(i=0;i< n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    scanf("%d%d",&dt,&m);
+    for(i=0;i< n;i++)
+    {
+        sum=0;
+        temp=0;
+        for(j=i;j< n;j++)
+        {
+            if(temp< m)
+            {
+                sum=sum+a[j];
+                temp++;
+            }
+        }
+        if(sum==dt)
+        {
+            count++;
+        }
+    }
+    printf("%d",count);
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>C++:</h3>
+<pre>
+  #include< bits/stdc++.h>
+using namespace std;
+int main(){
+
+    int T,N,C,M,ans = 0;
+    cin >> T;
+    while(T--){
+        cin >> N >> C >> M;
+        int tmp = ans = N/C;
+        while(tmp >= M){
+            ans++;
+            tmp-=M;
+            tmp++;
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
+
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.util.Arrays;
+import java.util.Scanner;
+
+/**
+ *
+ * @author Milind
+ */
+public class PickingNumbers {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] a = new int[n];
+        for (int a_i = 0; a_i < n; a_i++) {
+            a[a_i] = in.nextInt();
+        }
+
+        Arrays.sort(a);
+
+        int highestCount = 0;
+        for (int i = 0; i < n; i++) {
+            int currentCount = 0;
+            for (int j = 0; j <= i; j++) {
+                if (Math.abs(a[i] - a[j]) <= 1) {
+                    currentCount++;
+                    if (currentCount > highestCount) {
+                        highestCount = currentCount;
+                    }
+                }
+            }
+
+        }
+        System.out.println(highestCount);
+    }
+
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>Python</h3>
+<pre>
+  #!/bin/python
+
+import sys
+
+def getWays(squares, d, m):
+    cnt = 0
+    q = squares[:m-1]
+    for ele in squares[m-1:]:
+        q.append(ele)
+        if (sum(q) == d):
+            cnt += 1
+        q.pop(0)
+    return cnt
+
+n = int(raw_input().strip())
+s = map(int, raw_input().strip().split(' '))
+d,m = raw_input().strip().split(' ')
+d,m = [int(d),int(m)]
+result = getWays(s, d, m)
+print(result)
+</pre>
+    </div>
+  </body>
+</html>

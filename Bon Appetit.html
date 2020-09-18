@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Bon Appetit</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C:</h3>
+    <pre>
+      #include< stdio.h>
+int main()
+{
+    int n,k;
+    scanf("%d %d",&n,&k);
+    int i,a[n];
+    for(i=0;i< n;i++)
+        scanf("%d",&a[i]);
+    int sum = 0;
+    for(i=0;i< n;i++)
+        sum += a[i];
+    int paid;
+    scanf("%d",&paid);
+    int toBePaid = sum-a[k];
+    if((toBePaid)/2==paid)
+        printf("Bon Appetit\n");
+    else
+        printf("%d\n",paid-(toBePaid)/2);
+    return 0;
+}
+    </pre>
+    <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h3>C++:</h3>
+<pre>
+  #include < cmath>
+#include < cstdio>
+#include < vector>
+#include < iostream>
+#include < algorithm>
+using namespace std;
+int main() {
+    int n, k, sum=0;
+    cin >> n >> k;
+    for (int i=0;i< n;i++) {
+        int a;
+        cin >> a;
+        if (i!=k) sum+=a;
+    }
+    int l;
+    cin >> l;
+    if (sum/2==l) cout << "Bon Appetit" << endl;
+    else cout << l-sum/2 << endl;
+}
+  </pre>
+
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        int a[]=new int[n];
+        int sum=0;
+        for(int i=0;i< n;i++){
+            a[i]=sc.nextInt();
+            if(i!=k){
+                sum+=a[i];
+            }
+        }
+        int num=sc.nextInt();
+        if(num==sum/2)
+            System.out.println("Bon Appetit");
+        else
+            System.out.println(num-sum/2);
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def bonAppetit(n, skip, b, ar):
+      sum_actual = 0
+
+      ar.pop(skip)
+      sum_actual = sum(ar)//2
+
+      if sum_actual == b:
+          return 'Bon Appetit'
+      else:
+          return b - sum_actual
+
+  n, k = input().strip().split(' ')
+  n, k = [int(n), int(k)]
+  ar = list(map(int, input().strip().split(' ')))
+  b = int(input().strip())
+  result = bonAppetit(n, k, b, ar)
+  print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

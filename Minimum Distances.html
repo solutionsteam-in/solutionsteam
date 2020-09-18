@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Minimum Distances</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+<h3>C++:</h3>
+<pre>
+  using namespace std;
+int main() {
+    int n,ar[1005],mn = INT_MAX;
+    bool flag = false;
+    cin >> n;
+    for(int i = 0; i < n; i++)
+        cin >> ar[i];
+    for(int i = 0; i < n; i++){
+        for(int j = i+1; j < n; j++){
+            if(ar[i] == ar[j]){
+                if(abs(i-j) < mn)mn = abs(i-j);
+                flag = true;
+                break;
+            }
+        }
+    }
+    if(!flag)mn = -1;
+    cout << mn << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.util.HashMap;
+
+static int minimumDistances(int[] array) {
+    HashMap< Integer, Integer> map = new HashMap();
+    int minDistance = Integer.MAX_VALUE;
+    for (int i = 0; i < array.length; i++) {
+        if (map.containsKey(array[i])) {
+            int prevIndex = map.get(array[i]);
+            int currDistance = i - prevIndex;
+            minDistance = Math.min(minDistance, currDistance);
+        }
+        map.put(array[i], i);
+    }
+    return minDistance == Integer.MAX_VALUE ? -1 : minDistance;
+}
+    </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def minimumDistances(array):
+      res = -1
+      memo = [-1] * (10**5 + 3)
+
+      for ind, el in enumerate(array):
+          if memo[el] >= 0:
+              res = min(res if res >= 0 else 10**5 + 2, ind - memo[el])
+          memo[el] = ind
+
+      return res
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      a = list(map(int, input().strip().split(' ')))
+      result = minimumDistances(a)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

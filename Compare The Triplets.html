@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Compare the Triplets </title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+using namespace std;
+
+int main()
+{
+unsigned long long a[3],b[3],alice=0,bob=0;
+for(unsigned long long i=0;i< 3;i++) {cin>>a[i];}
+for(unsigned long long i=0;i< 3;i++) {cin>>b[i];}
+
+for(unsigned long long i=0;i< 3;i++)
+  {
+  if(a[i]>b[i]) {alice++;}
+  else if(a[i]< b[i]) {bob++;}
+  }
+cout<< alice<<" "<< bob<<"\n";
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+  import java.util.*;
+  import java.text.*;
+  import java.math.*;
+  import java.util.regex.*;
+
+  public class Solution {
+
+      public static void main(String[] args) {
+          Scanner in = new Scanner(System.in);
+          int a0 = in.nextInt();
+          int a1 = in.nextInt();
+          int a2 = in.nextInt();
+          int b0 = in.nextInt();
+          int b1 = in.nextInt();
+          int b2 = in.nextInt();
+
+          int alice = ((a0 > b0)?1:0) + ((a1 > b1)?1:0) + ((a2 > b2)?1:0);
+          int bob = ((b0 > a0)?1:0) + ((b1 > a1)?1:0) + ((b2 > a2)?1:0);
+
+
+          System.out.println(alice + " " + bob);
+      }
+  }
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def solve(a0, a1, a2, b0, b1, b2):
+      alice = bob = 0
+      if a0 > b0:
+          alice += 1
+      elif a0 < b0:
+          bob += 1
+      if a1 > b1:
+          alice += 1
+      elif a1 < b1:
+          bob += 1
+      if a2 > b2:
+          alice += 1
+      elif a2 < b2:
+          bob += 1
+      return alice, bob
+
+  a0, a1, a2 = input().strip().split(' ')
+  a0, a1, a2 = [int(a0), int(a1), int(a2)]
+  b0, b1, b2 = input().strip().split(' ')
+  b0, b1, b2 = [int(b0), int(b1), int(b2)]
+  result = solve(a0, a1, a2, b0, b1, b2)
+  print (" ".join(map(str, result)))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

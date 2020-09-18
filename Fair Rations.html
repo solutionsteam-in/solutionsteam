@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Fair Rations</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+  <h3>C++:</h3>
+<pre>
+  #include < iostream>
+#include < vector>
+#include < math.h>
+
+using namespace std;
+
+int main(){
+    int N;
+    cin >> N;
+
+    vector< int> B(N);
+
+    for(int B_i = 0;B_i < N;B_i++){
+       cin >> B[B_i];
+    }
+
+    int i = 0, odd = 0, p = 0, q = 0;
+
+    while(i< N){
+        if(B[i] % 2 != 0){
+            odd++;
+            i++;
+            if(odd % 2 == 0){
+                q += ++p;
+                p = 0;
+            }
+
+            while((B[i] % 2 == 0) && (i< N) && (odd % 2 != 0)){
+                p++;
+                i++;
+            }
+        }
+        else
+            i++;
+    }
+
+    if(odd % 2 == 0)
+        cout << 2*q << endl;
+    else
+        cout << "NO" << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        int N = scan.nextInt();
+        int array[] = new int[N];
+        for (int i = 0; i < N; i++) {
+            array[i] = scan.nextInt();
+        }
+        scan.close();
+        giveBread(array);
+    }
+
+    static void giveBread(int[] array) {
+        int breadGiven = 0;
+        for (int i = 0; i < array.length - 1; i++) {
+            if (array[i] % 2 == 1) {
+                array[i]++;
+                array[i+1]++;
+                breadGiven+= 2;
+            }
+        }
+        if (array[array.length - 1] % 2 == 1) {
+            System.out.println("NO"); // Array has odd parity. No solution exists
+        } else {
+            System.out.println(breadGiven);
+        }
+    }
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def check(array):
+      return len(list(filter(lambda x: x%2 == 0, array))) == len(array)
+
+  def fairRations(B):
+      res = 0
+
+      for ind in range(len(B)-1):
+          if B[ind]%2 == 1:
+              B[ind] += 1
+              B[ind+1] += 1
+              res += 2
+
+      return res if check(B) else 'NO'
+
+  if __name__ == "__main__":
+      N = int(input().strip())
+      B = list(map(int, input().strip().split(' ')))
+      result = fairRations(B)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

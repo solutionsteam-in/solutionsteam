@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Equalize the Array</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+        <h3>C++:</h3>
+<pre>
+  #include < map>
+#include < iostream>
+using namespace std;
+
+int main() {
+    int n, result = 0;
+    cin >> n;
+    map< int, int> count;
+    for(int i; cin >> i; ) {
+        count[i]++;
+    }
+    for(auto& i : count) {
+        result = max(result, i.second);
+    }
+    cout << n - result;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+  static int equalizeArray(int[] arr) {
+    int cache[] = new int[100];
+    for (int i = 0; i < arr.length; i++) { cache[arr[i] - 1]++; }
+    int max = 0;
+    for (int i = 0; i < cache.length; i++) {
+      max = Math.max(max, cache[i]);
+    }
+
+    return arr.length - max;
+  }
+
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    int n = in.nextInt();
+    int[] arr = new int[n];
+    for(int arr_i = 0; arr_i < n; arr_i++){
+      arr[arr_i] = in.nextInt();
+    }
+    int result = equalizeArray(arr);
+    System.out.println(result);
+    in.close();
+  }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+  import java.util.Arrays;
+
+  public class Solution {
+
+      private static final int size = 100;
+
+      public static void main(String[] args) {
+          Scanner scan = new Scanner(System.in);
+          int n = scan.nextInt();
+          int [] counts = new int[size + 1]; // could alternatively use a HashMap
+          for (int i = 0; i < n; i++) {
+              counts[scan.nextInt()]++;
+          }
+          scan.close();
+          int maxRepetitions = Arrays.stream(counts).max().getAsInt();
+          System.out.println(n - maxRepetitions);
+      }
+  }
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  from collections import Counter
+
+  def equalizeArray(arr):
+      cnt = Counter(arr)
+
+      m_el_num = max(cnt.items(), key = lambda x: x[1])
+
+      return len(arr) - m_el_num[1]
+
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      arr = list(map(int, input().strip().split(' ')))
+      result = equalizeArray(arr)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

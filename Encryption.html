@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Encryption</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < iostream>
+#include < string>
+#include < cmath>
+#include < climits>
+
+using namespace std;
+
+int main(int argc, char const *argv[])
+{
+    string str;
+    cin >> str;
+    int len = (int)str.size();
+    int lb = (int) sqrt(1.0 * len);
+    int ub = (int) ceil(sqrt(1.0 * len));
+    int ans = INT_MAX;
+    int r = 0, c = 0;
+    for (int row = lb; row <= ub; row++)
+        for (int col = row; col <= ub; col++)
+            if (row * col >= len && row * col < ans)
+            {
+                ans = row * col;
+                r = row;
+                c = col;
+            }
+    for (int i = 0; i < c; i++)
+    {
+        for (int j = 0; j < r; j++)
+            if (j*c + i < len)
+                cout << str[j*c + i];
+        cout << " ";
+    }
+
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.lang.Math;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        String sentence = input.nextLine();
+
+        int rows = (int) Math.sqrt(sentence.length());
+
+        int columns = (sentence.length() > rows*rows) ? rows+1 : rows;
+                rows = (sentence.length() > rows*columns) ? rows+1 : rows;
+
+        for(int i = 0; i < columns; i++)
+        {
+            //System.out.print(sentence.charAt(i));
+            int currentIndex = i;
+            for(int j = 0; j < rows; j++)
+            {
+                if(currentIndex <= sentence.length()-1)
+                {
+                    System.out.print(sentence.charAt(currentIndex));
+                }
+                currentIndex += columns;
+            }
+            if(i+1 != columns) System.out.print(" ");
+        }
+
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  from math import sqrt
+  from math import ceil
+
+  def get_grid(number):
+      root = sqrt(number)
+
+      x = int(root//1)
+      y = ceil(root)
+
+      while x*y < number:
+          if x <= y:
+              x += 1
+          else:
+              y += 1
+
+      return (x, y)
+
+  def encryption(string):
+      string = string.strip().replace(' ', '')
+      str_len = len(string)
+
+      x, y = get_grid(str_len)
+      #print("x = {} y = {}".format(x, y))
+      grid = [ [ '' for i in range(x) ] for _j in range(y) ]
+
+      count = 0
+      x_ind = 0
+      y_ind = 0
+      for ind in range(str_len):
+          if count / y == 1 and count % y == 0:
+              count = 0
+              y_ind += 1
+              x_ind = 0
+
+          grid[x_ind][y_ind] = string[ind]
+          count += 1
+          x_ind += 1
+
+      #print(grid)
+      out = ''
+      for _i in range(y):
+          for _j in range(x):
+              out += grid[_i][_j]
+          out += ' '
+      #print(out)
+
+      #out = ''
+      #for _i in range(y):
+      #    for _j in range(x):
+      #        out += grid[_i][_j]
+      #    out += ' '
+
+      return out
+
+  if __name__ == "__main__":
+      s = input().strip()
+      result = encryption(s)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Beautiful Days at the movies</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C:</h3>
+<pre>
+int main() {
+int a,b,c,count=0;
+    scanf("%d %d %d",&a,&b,&c);
+    for(int temp=a;temp<=b;temp++)
+        {
+        int p=temp,rev=0;
+        while(p!=0)
+            {
+            rev=rev*10+(p%10);
+            p=p/10;
+        }
+        if(abs(rev-temp)%c==0)
+            count++;
+    }
+    printf("%d",count);
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>C++:</h3>
+<pre>
+using namespace std;
+long long rev(long long n){
+    long long tmp = 0;
+    while(n != 0){
+        tmp *= 10;
+        tmp += n % 10;
+        n /= 10;
+    }
+    return tmp;
+}
+int main() {
+    long long a,b,k,cnt = 0;
+    cin >> a >> b >> k;
+    for(long long i = a; i <= b; i++)if(abs(i-rev(i))%k == 0)cnt++;
+    cout << cnt << endl;
+    return 0;
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+   <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+
+        Scanner sc = new Scanner(System.in);
+        int i = sc.nextInt();
+        int j = sc.nextInt();
+        int k = sc.nextInt();
+
+        int n= j-i+1;
+        int count=0;
+
+        while(i<=j){
+        int number= i;
+        int reverse= 0;
+
+             while(number!= 0){
+            reverse = (reverse*10)+(number%10);
+            number = number/10;
+             }
+            int diff= Math.abs(i-reverse);
+           if(diff % k==0||diff==0){
+                count++;
+                    }
+        i++;
+        }
+      System.out.println(count);
+    }
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python
+
+  import sys
+
+  def is_beautiful(num, k):
+      rev_num = int(str(num)[::-1])
+      return abs(num - rev_num)%k == 0
+
+  def beautifulDays(i, j, k):
+      res = 0
+      for num in  range(i, j+1):
+          if is_beautiful(num, k):
+              res += 1
+      return res
+
+  if __name__ == "__main__":
+      i, j, k = raw_input().strip().split(' ')
+      i, j, k = [int(i), int(j), int(k)]
+      result = beautifulDays(i, j, k)
+      print result
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

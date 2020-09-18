@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Find Digits</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main()
+{
+int testcase,x,num,a,b=0;
+cin>>testcase;
+
+for(int i=0;i< testcase;i++)
+    {
+    cin>>num;
+    x=num;
+
+    while(num)
+        {
+        a=num%10;
+        num=num/10;
+
+        if(a!=0&&x%a==0)
+            {
+            b++;
+            }
+        }
+    cout<< b<< endl;
+    b=0;
+    }
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int T = input.nextInt();
+
+        for(int i = 0; i < T; i++)
+        {
+            String numberString = String.valueOf(input.nextInt());
+            int numberInteger = Integer.parseInt(numberString);
+            int evenlyDivisibleDigits = 0;
+
+            for(int j = 0; j < numberString.length(); j++)
+            {
+                int digit = Character.getNumericValue(numberString.charAt(j));
+
+                if(digit != 0 && numberInteger % digit == 0)
+                {
+                    evenlyDivisibleDigits++;
+                }
+            }
+            System.out.println(evenlyDivisibleDigits);
+        }
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def findDigits(n):
+      res = 0
+      for dig in n:
+          if dig != '0' and int(n) % int(dig) == 0:
+              res += 1
+
+      return res
+
+  if __name__ == "__main__":
+      t = int(input().strip())
+      for a0 in range(t):
+          n = input().strip()
+          result = findDigits(n)
+          print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

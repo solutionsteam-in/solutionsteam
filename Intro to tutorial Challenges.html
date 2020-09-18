@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Intro to tutorial Challenges</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+<h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main()
+{
+int a,v,n,index=0;
+cin>>v>>n;
+
+for(int i=0;i< n;i++)
+    {
+    cin>>a;
+    if(a==v)
+        {
+        cout<< index<< endl;
+        }
+    index++;
+    }
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+           int v = in.nextInt();
+           int n = in.nextInt();
+
+           int[] ar = new int[n];
+           for(int i=0;i< n;i++){
+              ar[i]=in.nextInt();
+           }
+
+           int i=0;
+           while (ar[i]< v){
+                i++;
+           }
+           System.out.println(i);
+
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def introTutorial(V, arr):
+      return arr.index(V)
+
+  if __name__ == "__main__":
+      V = int(input().strip())
+      n = int(input().strip())
+      arr = list(map(int, input().strip().split(' ')))
+      result = introTutorial(V, arr)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

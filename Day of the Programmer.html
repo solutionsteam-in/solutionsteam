@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Day of the Programmer</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < vector>
+#include < iostream>
+#include < algorithm>
+
+int main() {
+    int year;
+    std::cin >> year;
+    if (year == 1918) { // transition
+        std::cout << "26.09.1918\n";
+    } else {
+        if ((year < 1918 && year % 4 == 0) || (year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            std::cout << "12.09." << year << '\n';
+        } else {
+            std::cout << "13.09." << year << '\n';
+        }
+    }
+
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA::</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String solve(int year){
+        int x=0;
+        int y=year;
+        int d[]={31,30,31,30,31,31};
+
+        if(y==1918)
+        {
+            x=46;
+        }
+        else if(y< 1918)
+        {
+            if(y%4==0)
+            {
+                x=31+29;
+            }
+            else
+            {
+                x=31+28;
+            }
+        }
+        else
+        {
+            if(y%400==0||(y%4==0&&y%100!=0))
+            {
+                x=31+29;
+            }
+            else
+            {
+                x=31+28;
+            }
+        }
+        for(int z=0;z<=5;z++)
+        {
+            x=x+d[z];
+        }
+        return ((256-x)+".09."+y);
+            }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int year = in.nextInt();
+        String result = solve(year);
+        System.out.println(result);
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def is_leap_greg(year):
+      return (year % 400 == 0) or ((year % 4 == 0) and (year % 100 != 0))
+
+  def is_leap_jul(year):
+      return year % 4 == 0
+
+  def solve(year):
+      target = 256
+      months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+      if year < 1918:
+          if is_leap_jul(year):
+              months[1] = 29
+      elif year > 1919:
+          if is_leap_greg(year):
+              months[1] = 29
+      elif year == 1918:
+          target += 13
+
+      sum_tmp = 0
+      for ind, el in enumerate(months):
+          if sum_tmp + el > target:
+              month = '0' + str(ind + 1)
+              day = target - sum_tmp
+              break
+          else:
+              sum_tmp += el
+
+      return ".".join([str(day), str(month), str(year)])
+
+  year = int(input().strip())
+  result = solve(year)
+  print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

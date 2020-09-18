@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Divisible Sum Pairs</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+
+unsigned long long n=0,k=0,temp=0,c=0;
+cin>>n>>k;
+
+vector < unsigned long long> v;
+for(unsigned long long i=0;i< n;i++)
+	{
+	cin>>temp;
+	v.push_back(temp);
+	}
+for(unsigned long long i=0;i< v.size();i++)
+	{
+	for(unsigned long long j=i+1;j< v.size();j++)
+		{
+		if((v[i]+v[j])%k==0) {c++;}
+		}
+	}
+cout<< c<<"\n";
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int divisibleSumPairs(int n, int k, int[] ar) {
+        int c=0;
+        for(int x=0;x< ar.length-1;x++)
+        {
+            for(int y=1+x;y< ar.length;y++)
+            {
+                if((ar[x]+ar[y])%k==0)
+                {
+                    c++;
+                }
+            }
+        }
+        return c;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int k = in.nextInt();
+        int[] ar = new int[n];
+        for(int ar_i = 0; ar_i < n; ar_i++){
+            ar[ar_i] = in.nextInt();
+        }
+        int result = divisibleSumPairs(n, k, ar);
+        System.out.println(result);
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  from itertools import combinations
+
+  def divisibleSumPairs(n, k, ar):
+      res = 0
+      comb = list(combinations(ar, 2))
+
+      for pair in comb:
+          if sum(pair) % k == 0:
+              res += 1
+
+      return res
+
+
+
+  n, k = input().strip().split(' ')
+  n, k = [int(n), int(k)]
+  ar = list(map(int, input().strip().split(' ')))
+  result = divisibleSumPairs(n, k, ar)
+  print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Cavity Map</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include< bits/stdc++.h>
+using namespace std;
+#define CONDITION_1 input[i][j] > input[i-1][j] && input[i][j] > input[i][j-1]
+#define CONDITION_2 input[i][j] > input[i][j+1] && input[i][j] > input[i+1][j]
+
+int main(){
+
+    int n;
+    char input[101][101];
+
+    cin >> n;
+    for(int i = 0; i < n; i++){
+ for(int j = 0; j < n; j++){
+    cin >> input[i][j];
+ }
+    }
+    for(int i = 1; i < n-1; i++){
+ for(int j = 1; j < n-1; j++){
+     if(CONDITION_1 && CONDITION_2){
+  input[i][j] = 'X';
+     }
+ }
+    }
+    for(int i = 0; i < n; i++){
+ for(int j = 0; j < n; j++)cout << input[i][j];
+ cout << endl;
+    }
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static String[] cavityMap(String[] grid) {
+        String ar[]=new String[grid.length];
+        ar[0]=grid[0];
+        ar[grid.length-1]=grid[grid.length-1];
+        for(int x=1;x<=grid.length-2;x++)
+        {
+            String k="";
+            for(int y=1;y<=grid.length-2;y++)
+            {
+                int a=Integer.parseInt(grid[x].charAt(y)+"");
+                if(a>Integer.parseInt(grid[x-1].charAt(y)+"")
+                  &&a>Integer.parseInt(grid[x].charAt(y-1)+"")
+                  &&a>Integer.parseInt(grid[x].charAt(y+1)+"")
+                  &&a>Integer.parseInt(grid[x+1].charAt(y)+""))
+                {
+                    k=k+"X";
+                }
+                else
+                {
+                    k=k+grid[x].charAt(y);
+                }
+            }
+            ar[x]=grid[x].charAt(0)+k+grid[x].charAt(grid.length-1);
+        }
+        return ar;
+        // Complete this function
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        String[] grid = new String[n];
+        for(int grid_i = 0; grid_i < n; grid_i++){
+            grid[grid_i] = in.next();
+        }
+        String[] result = cavityMap(grid);
+        for (int i = 0; i < result.length; i++) {
+            System.out.print(result[i] + (i != result.length - 1 ? "\n" : ""));
+        }
+        System.out.println("");
+
+
+        in.close();
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def cavityMap(grid):
+      leng = len(grid)
+      output = [[0]*leng for _ in range(leng)]
+
+      for ind in range(leng):
+          for jnd in range(leng):
+              if (0 < ind < leng-1 and 0 < jnd < leng-1 and
+                 grid[ind][jnd] > grid[ind+1][jnd] and
+                 grid[ind][jnd] > grid[ind-1][jnd] and
+                 grid[ind][jnd] > grid[ind][jnd+1] and
+                 grid[ind][jnd] > grid[ind][jnd-1]):
+                  output[ind][jnd] = 'X'
+              else:
+                  output[ind][jnd] = grid[ind][jnd]
+
+      return output
+
+  if __name__ == "__main__":
+      n = int(input().strip())
+      grid = []
+      grid_i = 0
+      for grid_i in range(n):
+          grid_t = list(map(int, input().strip()))
+          grid.append(grid_t)
+      result = cavityMap(grid)
+      print("\n".join(["".join(map(str, x)) for x in result]))
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

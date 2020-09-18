@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Save the Prisoner!</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>Solution:</h2>
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>C:</h3>
+<pre>
+int main(int argc, char const *argv[]) {
+  int t;
+  scanf("%d", &t);
+  for (int i_t; i_t < t; i_t++) {
+    long long n, m, s;
+    scanf("%lld %lld %lld", &n, &m, &s);
+
+    long long res = ((m + s - 1) % n);
+    if (res == 0) res = n;
+
+    printf("%lld\n", res);
+  }
+  return 0;
+}
+</pre>
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>C++:</h3>
+<pre>
+  using namespace std;
+int main() {
+    int test;
+    cin >> test;    
+    while(test){
+        int n, m, s, ans;
+        cin >> n >> m >> s;
+
+        ans = (m + s - 1)%n;
+
+        if(ans == 0){
+            ans = n;
+        }
+        cout << ans << endl;
+        test--;
+    }
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.io.*;
+    import java.util.*;
+    public class Solution {
+
+    	public static void main(String[] args) {
+
+            Scanner scanner = new Scanner(System.in);
+
+    		int testCases = scanner.nextInt();
+
+    		for (int i = 0; i < testCases; i++) {
+    			int n = scanner.nextInt();
+    			int m = scanner.nextInt();
+    			int s = scanner.nextInt();
+    			int lastSweetIndex = (s - 1 + m) % n;
+                System.out.println(lastSweetIndex == 0 ? n : lastSweetIndex);
+    		}
+            scanner.close();
+    	}
+    }
+  </pre>
+    <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+<h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int T = input.nextInt();
+
+        for(int i = 0; i < T; i++)
+        {
+            int N = input.nextInt();
+            int M = input.nextInt();
+            int S = input.nextInt();
+
+            int poisonedPrisoner = (S + M - 1) % N;
+            if(poisonedPrisoner == 0){poisonedPrisoner=N;}
+            System.out.println(poisonedPrisoner);
+        }
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  def saveThePrisoner(n, m, s):
+      res = (s + m-1) % n
+      return res if res != 0 else n
+
+  t = int(input().strip())
+  for a0 in range(t):
+      n, m, s = input().strip().split(' ')
+      n, m, s = [int(n), int(m), int(s)]
+      result = saveThePrisoner(n, m, s)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Alternating Characters </title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+
+      <h3>C++:</h3>
+<pre>
+  #include
+using namespace std;
+int main(){
+
+    string str1,str2;
+    int len1,len2,cnt = 0,sz,alpa1[26] = {0},alpa2[26] = {0};
+    cin >> str1;
+    cin >> str2;
+    len1 = str1.size();
+    len2 = str2.size();
+    for(int i = 0; i < len1; i++)alpa1[str1[i]-97]++;
+    for(int i = 0; i < len2 ;i++)alpa2[str2[i]-97]++;
+    for(int i = 0; i < 26; i++)cnt+=abs(alpa1[i]-alpa2[i]);
+    cout << cnt << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+public class Solution {
+    static boolean isAnagram(String a, String b) {
+               a=a.toUpperCase();
+        b=b.toUpperCase();
+        boolean ret = false;
+        StringBuilder c= new StringBuilder(b);
+
+        if(a.length()==b.length()){
+            for(int i=0; i< a.length();i++){
+                for(int j=0; j< c.length();j++){
+                    if(a.charAt(i)==c.charAt(j)){
+                            c.deleteCharAt(j);
+                        if(i==a.length()-1 && c.length()==0){
+                            ret=true;
+                            break;
+                        }
+                        break;
+                    }
+                }
+            }
+        }return ret;
+   }
+         public static void main(String[] args) {
+
+        Scanner scan = new Scanner(System.in);
+        String a = scan.next();
+        String b = scan.next();
+        scan.close();
+        boolean ret = isAnagram(a, b);
+        System.out.println( (ret) ? "Anagrams" : "Not Anagrams" );
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/usr/bin/py
+
+def buildMap(s):
+    the_map = {}
+    for char in s:
+        if char not in the_map:
+            the_map[char] = 1
+        else:
+            the_map[char] +=1
+
+    return the_map
+
+
+def anagram(s):
+    if len(s)%2 == 1:
+        return -1
+
+    mid = len(s)//2
+    s1 = s[:mid]
+    s2 = s[mid:]
+
+    map1 = buildMap(s1)
+    map2 = buildMap(s2)
+
+    diff_cnt = 0
+    for key in map2.keys():
+        if key not in map1:
+            diff_cnt += map2[key]
+        else:
+            diff_cnt += max(0, map2[key]-map1[key])
+
+    return diff_cnt
+
+if __name__ == '__main__':
+    t = input()
+    for _ in xrange(t):
+        s = raw_input()
+        print anagram(s)
+
+</pre>
+    </div>
+  </body>
+</html>

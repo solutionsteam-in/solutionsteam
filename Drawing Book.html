@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing Book</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < vector>
+#include < iostream>
+#include < algorithm>
+
+static int total_pages(const int& n) {
+    return (n + 2) / 2;
+}
+
+int main() {
+
+    int n,p;
+    std::cin >> n >> p;
+
+    int entire_book = total_pages(n);
+
+    int from_front = total_pages(p) - 1;
+    int from_back = entire_book - from_front - 1;
+
+    std::cout << std::min(from_front, from_back) << '\n';
+
+    return 0;
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int solve(int n, int p){
+        int a=0,b=0;
+        if(p%2==0)
+        {
+            a=p/2;
+            b=n/2-a;
+        }
+        else
+        {
+            a=(p-1)/2;
+            b=n/2-a;
+        }
+        return a< b?a:b;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int p = in.nextInt();
+        int result = solve(n, p);
+        System.out.println(result);
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def get_open(page):
+      return 1 + (page//2)
+
+  def solve(n, p):
+      return min(get_open(p) - get_open(1), get_open(n) - get_open(p))
+
+  n = int(input().strip())
+  p = int(input().strip())
+  result = solve(n, p)
+  print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

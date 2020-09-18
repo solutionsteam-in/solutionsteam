@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Mini-Max Sum</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+  <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main() {
+    auto sum = 0ll;
+    auto min = INT_MAX, max = 1;
+    for(int i; cin >> i; sum += i) {
+        if(i < min) {
+            min = i;
+        }
+        if(i > max) {
+            max = i;
+        }
+    }
+    cout << sum - max << ' ' << sum - min;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        long min = Long.MAX_VALUE;
+        long max = 0;
+        long sum = 0;
+        for(int i=0; i< 5; i++)
+        {
+            long curr = in.nextLong();
+            if(max < curr)
+            {
+                max = curr;
+            }
+            if(min > curr)
+            {
+                min = curr;
+            }
+
+            sum += curr;
+        }
+        long minSum = sum - max;
+        long maxSum = sum - min;
+        System.out.println(minSum + " " + maxSum);
+    }
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+  # stupid O(n^2) algorithm
+
+  import math
+  import sys
+
+  def miniMaxSum(arr):
+      sum_min = math.inf
+      sum_max = -math.inf
+      sum_temp = 0
+
+      for exclude in range(len(arr)):
+          sum_temp = 0
+          for ind, elem in enumerate(arr):
+              if ind == exclude:
+                  continue
+              sum_temp += elem
+          if sum_temp < sum_min:
+              sum_min = sum_temp
+          if sum_temp > sum_max:
+              sum_max = sum_temp
+
+      print("{} {}".format(sum_min, sum_max))
+      return sum_min, sum_max
+
+  if __name__ == "__main__":
+      arr = list(map(int, input().strip().split(' ')))
+      miniMaxSum(arr)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

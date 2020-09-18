@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Angry Professor</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  using namespace std;
+
+  int main()
+  {
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+
+  unsigned long long t=0;
+  cin>>t;
+
+  while(t--)
+  	{
+  	unsigned long long n=0,k=0,c=0;
+  	long long a=0;
+
+  	cin>>n>>k;
+  	for(unsigned long long i=0;i< n;i++)
+  		{
+  		cin>>a;
+  		if(a<=0) {c++;}
+  		}
+  	if(c>=k) {cout<<"NO\n";}
+  	else {cout<<"YES\n";}
+  	}
+  return 0;
+  }
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+<h3>JAVA:</h3>
+<pre>
+  import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+
+public class AngryProf {
+
+	public static void main(String args[] ) throws Exception {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	    PrintWriter w = new PrintWriter(System.out);
+
+	    int t = ip(br.readLine());
+
+	    while(t-- > 0) {
+	    	StringTokenizer st1 = new StringTokenizer(br.readLine());
+	    	int n = ip(st1.nextToken());
+	    	int k = ip(st1.nextToken());
+
+	        StringTokenizer st2 = new StringTokenizer(br.readLine());
+	        int a[] = new int[n];
+	        for(int i=0;i< n;i++)
+	       	   a[i] = ip(st2.nextToken());
+
+	        int count = 0;
+	        for(int i=0;i< n;i++)
+	        	if(a[i]<=0)	count++;
+	        w.println(count < k ? "YES" : "NO");
+	    }
+
+	    w.close();
+
+	}
+
+	public static int ip(String s){
+		return Integer.parseInt(s);
+	}
+
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def angryProfessor(k, a):
+      res = 'NO'
+      if len(list(filter(lambda x: x <= 0, a))) < k:
+          res = 'YES'
+      return res
+
+  if __name__ == "__main__":
+      t = int(input().strip())
+      for a0 in range(t):
+          n, k = input().strip().split(' ')
+          n, k = [int(n), int(k)]
+          a = list(map(int, input().strip().split(' ')))
+          result = angryProfessor(k, a)
+          print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>CamelCase</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+  #include < bits/stdc++.h>
+using namespace std;
+int main() {
+
+ string str;
+ int cnt = 1;
+ cin >> str;
+ int len = str.length();
+ for(int i = 0; i < len; i++){
+        if(str[i]>= 65 && str[i] <= 90)cnt++;
+ }
+ cout << cnt << endl;
+ return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+<pre>
+  import java.util.Scanner;
+public class CamelCase {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        String s = in.next();
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (Character.isUpperCase(s.charAt(i))) {
+                count++;
+            }
+        }
+        System.out.println(count + 1);
+
+    }
+}
+</pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+  def camelcase(s):
+      res = 1
+      for let in s:
+          if let.isupper():
+              res += 1
+
+      if not s:
+          res = 0
+
+      return res
+
+  if __name__ == "__main__":
+      s = input().strip()
+      result = camelcase(s)
+      print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Kangaroo</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+      <pre>
+  #include < iostream>
+  using namespace std;
+
+  int main() {
+    int x1, v1, x2, v2;
+    cin >> x1 >> v1 >> x2 >> v2;
+    int dx = x1 - x2;
+    int dv = v2 - v1;
+    if (dv != 0 && dx % dv == 0 && dx / dv > 0) {
+      cout << "YES" << endl;
+    } else {
+      cout << "NO" << endl;
+    }
+    return 0;
+  }
+        </pre>
+        <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+<h3>C++:</h3>
+<pre>
+  using namespace std;
+
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+
+long long x1=0,x2=0,v1=0,v2=0;
+cin>>x1>>v1>>x2>>v2;
+for(;;)
+    {
+    if((x1>x2&&v1>v2)||(x2>x1&&v2>v1)||(x1!=x2&&v1==v2)) {cout<<"NO\n"; break;}
+    if((x1+=v1)==(x2+=v2)) {cout<<"YES\n"; break;}
+    }
+return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>C:</h3>
+  <pre>
+    #include < stdio.h>
+int main() {
+    int x1, v1, x2, v2;
+    scanf("%i %i %i %i", &x1, &v1, &x2, &v2);
+    printf("%s", ((v1-v2) <= 0) ? "NO" : (((x2 - x1)/(v1 - v2) >= 0) && ((x2 - x1)%(v1 - v2) == 0)) ? "YES":"NO");
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int x1 = in.nextInt();
+        int v1 = in.nextInt();
+        int x2 = in.nextInt();
+        int v2 = in.nextInt();
+
+        while(x1 <= x2)
+        {
+            if(x1 == x2)
+            {
+                System.out.println("YES");
+                System.exit(0);
+            }
+            x1 += v1;
+            x2 += v2;
+        }
+        System.out.println("NO");
+    }
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def kangaroo(x1, v1, x2, v2):
+      if x1 >= x2 and v1 > v2:
+          return 'NO'
+      elif x2 >= x1 and v2 > v1:
+          return 'NO'
+      elif (x1 > x2 or x2 > x1) and v1 == v2:
+          return 'NO'
+      else:
+          pos1, pos2 = x1, x2
+          dif_prev = dif = abs(pos1 - pos2)
+          while dif_prev >= dif:
+              if pos1 == pos2:
+                  return 'YES'
+              pos1 += v1
+              pos2 += v2
+              dif_prev, dif = dif, abs(pos1 - pos2)
+      return 'NO'
+
+  x1, v1, x2, v2 = input().strip().split(' ')
+  x1, v1, x2, v2 = [int(x1), int(v1), int(x2), int(v2)]
+  result = kangaroo(x1, v1, x2, v2)
+  print(result)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

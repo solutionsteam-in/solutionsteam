@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Modified Kaprekar Numbers</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+      <h2>Solution:</h2>
+<h3>C++:</h3>
+<pre>
+  using namespace std;
+
+long long digitCount(long long x){
+    long long cnt = 0;
+    while(x){
+        cnt++;
+        x/=10;
+
+    }
+    return cnt;
+}
+
+long long splitNumber(long long x){
+    long long tmp = 1;
+    while(x){
+        tmp*=10;
+        x--;
+    }
+    return tmp;
+}
+
+long long check(long long x){
+    while(x % 10 == 0)x/=10;
+    return x;
+}
+
+int main(){
+
+    long long p,q;
+    cin >> p >> q;
+
+    bool flag = true;
+    for(long long i = p; i <= q; i++){
+        long long a,b,digit,sq;
+
+        sq = i*i;
+        digit = digitCount(sq);
+        digit -= (digit/2);
+        a = sq / splitNumber(digit);
+        b = sq % splitNumber(digit);
+        if((a+b) == i){
+            cout << i << " ";
+            flag = false;
+        }
+    }
+    if(flag) cout << "INVALID RANGE";
+    cout << endl;
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+  <h3>JAVA:</h3>
+  <pre>
+    import java.io.*;
+import java.math.*;
+import java.security.*;
+import java.text.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    // Complete the kaprekarNumbers function below.
+    static void kaprekarNumbers(int p, int q) {
+        boolean found = false;
+        for (int i = p; i <= q; i++) {
+            if (isKaprekar(i)) {
+                System.out.print("" + i + " ");
+                found = true;
+            }
+        }
+        if (!found) {
+            System.out.print("INVALID RANGE");
+        }
+    }
+
+    static boolean isKaprekar(long n) {
+        long square = n * n;
+        String l = "" + n;
+        String tmp = "" + square;
+        int diff = tmp.length() - l.length();
+        long right = Long.parseLong(tmp.substring(diff));
+        if (tmp.length() == l.length()) {
+            return n == right;
+        }
+        long left = Long.parseLong(tmp.substring(0, diff));
+        return (right + left) == n;
+    }
+
+    private static final Scanner scanner = new Scanner(System.in);
+
+    public static void main(String[] args) {
+        int p = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        int q = scanner.nextInt();
+        scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+        kaprekarNumbers(p, q);
+
+        scanner.close();
+    }
+}
+    </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def is_kaprekar(num):
+      if num < 4:
+          if num == 1:
+              return True
+          else:
+              return False
+      num_sq = pow(num, 2)
+      num_sq_str = str(num_sq)
+
+      left = num_sq_str[:len(num_sq_str)//2]
+      right = num_sq_str[len(num_sq_str)//2:]
+
+      #print("left = {} right = {}".format(left, right))
+
+      if int(left) + int(right) == num:
+          return True
+      else:
+          return False
+
+  def kaprekarNumbers(p, q):
+      out = []
+      for num in range(p, q + 1):
+          if is_kaprekar(num):
+              out.append(num)
+      return out
+
+  if __name__ == "__main__":
+      p = int(input().strip())
+      q = int(input().strip())
+      result = kaprekarNumbers(p, q)
+      if result:
+          print (" ".join(map(str, result)))
+      else:
+          print("INVALID RANGE")
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>

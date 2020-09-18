@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Between Two Sets</title>
+    <link rel="stylesheet" href="common.css">
+  </head>
+  <body>
+    <div class="box1">
+      <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h2>Solution:</h2>
+      <h3>C++:</h3>
+<pre>
+using namespace std;
+int main() {
+    int n, m;
+    scanf("%d %d", &n, &m);
+    int a[100], b[100];
+    for (int i=0; i< n; i++)
+        scanf("%d", &a[i]);
+    for (int i=0; i< m; i++)
+        scanf("%d", &b[i]);
+    int cnt = 0;
+    for (int k=1; k<=100; k++)
+    {
+        int flag = 1;
+        for (int i=0; i< n; i++)
+            if (k % a[i] != 0)
+                flag = 0;
+        for (int i=0; i< m; i++)
+            if (b[i] % k != 0)
+                flag = 0;
+        if (flag == 1)
+            cnt ++;
+    }
+    printf("%d\n", cnt);
+    return 0;
+}
+  </pre>
+  <h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+  <h3>JAVA:</h3>
+<pre>
+  import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int getTotalX(int[] a, int[] b, int maxA, int minB) {
+        int counter = 0;
+
+        for (int i = maxA; i <= minB; i++) {
+            boolean sentinel = false;
+            for (int j = 0; j < a.length; j++) {
+                if (i % a[j] != 0) {
+                    sentinel = true;
+                    break;
+                }
+            }
+            for (int j = 0; j < b.length; j++) {
+                if (b[j] % i != 0) {
+                    sentinel = true;
+                    break;
+                }
+            }
+
+            if (!sentinel) { counter++; }
+        }
+
+        return counter;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int maxA = Integer.MIN_VALUE;
+        int minB = Integer.MAX_VALUE;
+        int[] a = new int[n];
+        for(int a_i = 0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
+            maxA = Math.max(maxA, a[a_i]);
+        }
+        int[] b = new int[m];
+        for(int b_i = 0; b_i < m; b_i++){
+            b[b_i] = in.nextInt();
+            minB = Math.min(minB, b[b_i]);
+        }
+        int total = getTotalX(a, b, maxA, minB);
+        System.out.println(total);
+        in.close();
+    }
+}
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+      <h3>Python:</h3>
+<pre>
+  #!/bin/python3
+
+  import sys
+
+  def check_a(number, a):
+      for el in a:
+          if number % el != 0:
+              return False
+      return True
+
+  def check_b(number, b):
+      for el in b:
+          if el % number != 0:
+              return False
+      return True
+
+  def getTotalX(a, b):
+      res = 0
+      max_a = max(a)
+      min_b = min(b)
+
+      probe = max_a
+
+      while probe <= min_b:
+          if check_a(probe, a) and check_b(probe, b):
+              res += 1
+          probe += max_a
+
+      return res
+
+
+  if __name__ == "__main__":
+      n, m = input().strip().split(' ')
+      n, m = [int(n), int(m)]
+      a = list(map(int, input().strip().split(' ')))
+      b = list(map(int, input().strip().split(' ')))
+      total = getTotalX(a, b)
+      print(total)
+</pre>
+<h2>For All Hackerrank Solutions<a href="hackerrank.html">Visit Homepage</a></h2>
+
+    </div>
+  </body>
+</html>
