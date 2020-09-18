@@ -1,0 +1,60 @@
+body
+{
+  padding: 200px;
+  border-radius: 460px;
+  padding-top: 40px;
+    background-image: url('background.jpeg');
+    background-size: contain;
+}
+section
+{
+  padding: 10px;
+}
+.box
+{
+  padding: 5px;
+  padding-left: 200px;
+  border-radius: 150px;
+  border-style:inset;
+  border-color: darkblue;
+  background-color: #ffffff;
+}
+.box2
+{
+  padding: 5px;
+  padding-left:250px;
+  border-radius: 150px;
+  border-color: darkblue;
+  border-style: dashed;
+    background-color: #ffffff;
+}
+.list
+{
+  padding-top: 5px;
+  border-radius: 250px;
+  background-color: #fff;
+  color: #008000;
+  padding-left: 200px;
+  border-style:inset;
+  border-color:darkblue;
+}
+p
+{
+  font-size: 30px;
+  color: tomato;
+  padding-left: 20px;
+  padding-right: 20px;
+
+}
+h1
+{
+  padding-top: 10px;
+  font-size: 50px;
+  color: #008000;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+li a
+{
+
+}
